@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<div class="container">
+    <form method="POST" action="">
+            {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="form">Join us today!</legend>
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+                {{ form.username.label( class="form-control-label" ) }}
+                {{ form.username( class="form-control-lg" ) }}
+                <!-- <input type="text" id="form3Example1" class="form-control" />
+                <label class="form-label" for="form3Example1">Username</label> -->
+            </div> 
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                {{ form.email.label( class="form-control-label" ) }}
+                {{ form.email( class="form-control-lg" ) }}
+                <!-- <input type="email" id="form3Example3" class="form-control" />
+                <label class="form-label" for="form3Example3">Email address</label> -->
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                {{ form.password.label( class="form-control-label" ) }}
+                {{ form.password( class="form-control-lg" ) }}
+                <!-- <input type="password" id="form3Example4" class="form-control" />
+                <label class="form-label" for="form3Example4">Password</label> -->
+            </div>
+
+            <!--confirm_password input -->
+            <div class="form-outline mb-4">
+                {{ form.confirm_password.label( class="form-control-label" ) }}
+                {{ form.confirm_password( class="form-control-lg" ) }}
+                <!-- <input type="password" id="form3Example4" class="form-control" />
+                <label class="form-label" for="form3Example4">Password</label> -->
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-check d-flex justify-content-center mb-4">
+                <input
+                class="form-check-input me-2"
+                type="checkbox"
+                value=""
+                id="form2Example3"
+                checked
+                />
+                <label class="form-check-label" for="form2Example3">
+                Subscribe to our newsletter
+                </label>
+            </div>
+
+            <!-- Submit button -->
+            
+        </fieldset>
+        <button type="submit" class="btn btn-primary btn-block mb-4">{{ form.submit() }}</button>
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>or sign up with:</p>
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-facebook-f"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-google"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+            <i class="fab fa-github"></i>
+            </button>
+        </div>
+    </form>
+    <div class="text-center">
+        <p class="text-muted"> If you have an account<a class="ml-2"href="{{ url_for('signIn') }}">SignIn</a></p>
+    </div>
+</div>
+{% endblock %}

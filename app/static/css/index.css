@@ -1,0 +1,17 @@
+/* font-family: 'Signika Negative', sans-serif; { headings }*/
+/* font-family: 'Playball', cursive; {notes} */
+/* font-family: 'Alex Brush', cursive; {deco} */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(
+            0deg
+            ,rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("/static/images/ren-ran-bBiuSdck8tU-unsplash.jpg"); 
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
