@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% block navbar %}
+    {% include "nav.html" %}
+  {% endblock %}
+
+
 {% block content %} 
 <div class="container">
     <form method="POST" action="">
@@ -10,32 +15,28 @@
             <div class="form-outline mb-4">
                 {{ form.username.label( class="form-control-label" ) }}
                 {{ form.username( class="form-control-lg" ) }}
-                <!-- <input type="text" id="form3Example1" class="form-control" />
-                <label class="form-label" for="form3Example1">Username</label> -->
+                
             </div> 
 
             <!-- Email input -->
             <div class="form-outline ml-4 mb-4">
                 {{ form.email.label( class="form-control-label" ) }}
                 {{ form.email( class="form-control-lg" ) }}
-                <!-- <input type="email" id="form3Example3" class="form-control" />
-                <label class="form-label" for="form3Example3">Email address</label> -->
+              
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
                 {{ form.password.label( class="form-control-label" ) }}
                 {{ form.password( class="form-control-lg" ) }}
-                <!-- <input type="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Password</label> -->
+               
             </div>
 
             <!--confirm_password input -->
             <div class="form-outline mb-4">
                 {{ form.confirm_password.label( class="form-control-label" ) }}
                 {{ form.confirm_password( class="form-control-lg" ) }}
-                <!-- <input type="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Password</label> -->
+               
             </div>
 
             <!-- Checkbox -->

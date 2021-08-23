@@ -5,3 +5,7 @@ from . import main
 @main.route('/')
 def home():
     return render_template('index.html')
+
+@main.route('/blogs')
+def blogs():
+    return render_template('blogs.html')

@@ -33,69 +33,9 @@
     {% block title %} {% endblock %}
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button
-        class="navbar-toggler bg-light"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarRightAlignExample"
-        aria-controls="navbarRightAlignExample"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarRightAlignExample">
-        <!-- Left links -->
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item Home">
-            <a style="color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a style="color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="#">Profile</a>
-          </li>
-          <!-- Navbar dropdown -->
-          <li class="nav-item dropdown">
-            <a style="color: white; font-family: 'Signika Negative', sans-serif;"
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Quotes
-            </a>
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" style="color:#64DD17; font-family: 'Playball', cursive;" href="#">popular</a>
-              </li>
-              <li>
-                <a class="dropdown-item" style="color:#64DD17; font-family: 'Playball', cursive;"  href="#">Latest</a>
-              </li>
-            </ul>
-          </li>
-          <li class="text-center" style="margin-left:-1rem;">
-            <a href="{{ url_for('auth.signUp') }}"><button  type="button" class="btn btn-success btn-rounded" style="font-family: 'Signika Negative', sans-serif; position: relative;left: 1.3rem; top: 0px; z-index: 1;">Sign Up</button></a>
-            <a href="{{ url_for('auth.signIn') }}"><button style="font-family: 'Signika Negative', sans-serif;"  type="button"
-            class="btn btn-outline-success btn-rounded"
-            data-mdb-ripple-color="dark">Sign In</button></a>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
-    </div>
-    <!-- Container wrapper -->
-  </nav>
-
-
+  {% block navbar %}
+    
+  {% endblock %}
   {% block content %} {% endblock %}
   {% block footer %} {% endblock %}
   <!-- MDB -->
