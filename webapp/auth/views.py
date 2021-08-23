@@ -13,5 +13,8 @@ def signUp():
 @auth.route("/login", methods=['POST', 'GET'])
 def signIn():
     form = loginForm()
+    if form.validate_on_submit():
+        flash('you have successfully Loged in', 'success')
+        return redirect(url_for('main.home'))
     return render_template('signIn.html', form= form, title="signIn")
 

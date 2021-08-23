@@ -10,22 +10,7 @@
     <form method="POST" action="">
             {{ form.hidden_tag() }}
         <fieldset class="form-group text-center">
-            <legend class="form">Join us today!</legend> 
-            <!-- Username input -->
-            <div class="form-outline mb-4">
-                {{ form.username.label( class="form-control-label" ) }}
-                {% if form.username.errors %}
-                 {{ form.username( class="form-control-lg is_invalid" ) }}
-                    <div class="invalid_feedback">
-                        {% for error in form.username.errors %}
-                            <span> {{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.username( class="form-control-lg" ) }}
-                {% endif %}
-              
-            </div> 
+            <legend class="form">log in !</legend> 
 
             <!-- Email input -->
             <div class="form-outline ml-4 mb-4">
@@ -59,7 +44,9 @@
             </div>
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-4">
-                <input
+                {{ form.remember( class="form-check-input" ) }}
+                {{ form.remember.label( class="form-check-label" ) }}
+                <!-- <input
                 class="form-check-input me-2"
                 type="checkbox"
                 value=""
@@ -68,13 +55,19 @@
                 />
                 <label class="form-check-label" for="form2Example3">
                 remember me !
-                </label>
+                </label>  -->
             </div>
 
             <!-- Submit button -->
             
         </fieldset>
-        <button type="submit" class="btn btn-primary btn-block mb-4">{{ form.submit() }}</button>
+        <div class="container pl-7" style="width:20%;">
+            <button type="button" class="btn btn-primary btn-block mb-4">{{ form.submit() }}</button>
+            <small class="text-muted ml-2">
+            <a href="#">Forgot Password?</a>
+            </small>
+        </div>
+        
     </form>
 </div>
   
