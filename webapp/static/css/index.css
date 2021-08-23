@@ -8,10 +8,11 @@
 }
 body{
     background: linear-gradient(
-            0deg
-            ,rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("/static/images/ren-ran-bBiuSdck8tU-unsplash.jpg"); 
-    min-height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
+        0deg
+        ,rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('/static/images/erwann-stephanne-Th8LYj0vpUY-unsplash.jpg') no-repeat center center fixed;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+    perspective: 100rem;
 }

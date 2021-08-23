@@ -1,6 +1,6 @@
 from . import auth
 # from . import main 
-from flask import Flask, render_template
+from flask import Flask, render_template,url_for
 from .forms import registrationForm, loginForm
 
 # app = Flask(__name__)
