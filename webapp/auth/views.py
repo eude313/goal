@@ -1,12 +1,13 @@
-from app import auth
+from . import auth
+# from . import main 
 from flask import Flask, render_template
-from forms import registrationForm, loginForm
+from .forms import registrationForm, loginForm
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'd5c3d02c8abc064f2b1f5a83'
+# app = Flask(__name__)
+# app.config['SECRET_KEY'] = 'd5c3d02c8abc064f2b1f5a83'
 
 @auth.route('/signup', methods=['POST', 'GET'])
-def signup():
+def signUp():
     form = registrationForm()
     return render_template('signUp.html', form= form, title='signUp')
 
