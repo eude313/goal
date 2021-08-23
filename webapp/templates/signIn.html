@@ -1,40 +1,62 @@
 {% extends 'base.html' %}
 {% block navbar %}
     {% include "nav.html" %}
-  {% endblock %}
+{% endblock %}
 
 {% block content %} 
 
-    <div class="container">
-
+    
+<div class="container">
     <form method="POST" action="">
             {{ form.hidden_tag() }}
         <fieldset class="form-group text-center">
-            <legend class="form">Join us today!</legend>
+            <legend class="form">Join us today!</legend> 
             <!-- Username input -->
             <div class="form-outline mb-4">
                 {{ form.username.label( class="form-control-label" ) }}
-                {{ form.username( class="form-control-lg" ) }}
-                <!-- <input type="text" id="form3Example1" class="form-control" />
-                <label class="form-label" for="form3Example1">Username</label> -->
+                {% if form.username.errors %}
+                 {{ form.username( class="form-control-lg is_invalid" ) }}
+                    <div class="invalid_feedback">
+                        {% for error in form.username.errors %}
+                            <span> {{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username( class="form-control-lg" ) }}
+                {% endif %}
+              
             </div> 
 
             <!-- Email input -->
-            <div class="form-outline mb-4">
+            <div class="form-outline ml-4 mb-4">
                 {{ form.email.label( class="form-control-label" ) }}
-                {{ form.email( class="form-control-lg" ) }}
-                <!-- <input type="email" id="form3Example3" class="form-control" />
-                <label class="form-label" for="form3Example3">Email address</label> -->
+                {% if form.email.errors %}
+                    {{ form.email( class="form-control-lg is_invalid" ) }}
+                    <div class="invalid_feedback">
+                        {% for error in form.email.errors %}
+                            <span> {{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email( class="form-control-lg" ) }}
+                {% endif %}
+              
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
                 {{ form.password.label( class="form-control-label" ) }}
-                {{ form.password( class="form-control-lg" ) }}
-                <!-- <input type="password" id="form3Example4" class="form-control" />
-                <label class="form-label" for="form3Example4">Password</label> -->
+                {% if form.password.errors %}
+                    {{ form.password( class="form-control-lg is_invalid" ) }}
+                    <div class="invalid_feedback">
+                        {% for error in form.password.errors %}
+                            <span> {{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password( class="form-control-lg" ) }}
+                {% endif %}
             </div>
-
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-4">
                 <input
@@ -45,7 +67,7 @@
                 checked
                 />
                 <label class="form-check-label" for="form2Example3">
-                Subscribe to our newsletter
+                remember me !
                 </label>
             </div>
 
@@ -54,5 +76,6 @@
         </fieldset>
         <button type="submit" class="btn btn-primary btn-block mb-4">{{ form.submit() }}</button>
     </form>
-    </div>
+</div>
+  
 {% endblock %}
