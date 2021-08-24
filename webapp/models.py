@@ -1,26 +1,28 @@
 from flask_sqlalchemy import sqlalchemy
 from flask import app
 from datetime import datetime
+from webapp import db
+from flask_login import UserMixin
 
-db = sqlalchemy(app)
-class user( db.models):
+# db = sqlalchemy(app)
+class User( db.Model,UserMixin ):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.column(db.String(6), unique=True, nullable=False)
-    email = db.column(db.String(120), unique=True, nullable=False)
-    image_file = db.column(db.String(20), nullable=False, default= 'default.jpeg')
-    password =db.column(db.String(60), nullable=False)
-    post = db.relationship('Post', backref='auther', lazy='True')
+    username = db.Column(db.String(6), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    image_file = db.Column(db.String(20), nullable=False, default= 'default.jpeg')
+    password =db.Column(db.String(60), nullable=False)
+    post = db.relationship('Post', backref='author', lazy=True)
     
     #how the object is printed when printed out
     def __repr__(self):
         return f"user"('{self.username}','{self.email}','{self.image_file}')
     
-class Post( db.models):
+class Post( db.Model ):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    content = db.Column(db.text(), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user_id'), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     def __repr__(self):
         return f"Post"('{self.title}','{self.date_posted}')
     
