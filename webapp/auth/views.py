@@ -1,6 +1,6 @@
 from . import auth
 from webapp import db, bcrypt
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, logout_user, current_user 
 from ..models import User
 from flask import  render_template,url_for, flash, redirect
 from .forms import registrationForm, loginForm
@@ -37,3 +37,7 @@ def signIn():
 def signOut():
     logout_user()
     return redirect(url_for('main.home')) 
+
+@auth.route("/account")
+def Account():
+    return render_template('Profile.html', title="Profile")

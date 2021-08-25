@@ -30,36 +30,20 @@
           <li class="nav-item Home">
             <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
           </li>
-          <li class="nav-item">
-            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="#">Profile</a>
-          </li>
+         
           <li class="nav-item">
             <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('main.blogs') }}">Blogs</a>
           </li>
-          <!-- Navbar dropdown -->
-          <li class="nav-item dropdown">
-            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;"
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Quotes
-            </a>
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" style="text-shadow: 2px 2px 2px black; color:#64DD17; font-family: 'Playball', cursive;" href="#">popular</a>
-              </li>
-              <li>
-                <a class="dropdown-item" style="text-shadow: 2px 2px 2px black; color:#64DD17; font-family: 'Playball', cursive;"  href="#">Latest</a>
-              </li>
-            </ul>
+          
+          <li class="nav-item">
+            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('main.quotes') }}">Quotes</a>
           </li>
+
           <li class="text-center" style="text-shadow: 2px 2px 2px black; margin-left:-1rem;">
             {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.Profile') }}">Profile</a>
+              </li>
               <a href="{{ url_for('auth.signOut') }}"><button style="margin-left:1rem; font-family: 'Signika Negative', sans-serif;"  type="button"
               class="btn btn-outline-success btn-rounded "
               data-mdb-ripple-color="dark">log out</button></a>

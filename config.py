@@ -1,8 +1,7 @@
 import os
 
 class Config:
-    POPULAR_QUOTE = "http://quotes.stormconsultancy.co.uk/popular.json"
-    NEW_QUOTE = "http://quotes.stormconsultancy.co.uk/quotes/1.json?callback=my_method"
+    QUOTES_API = 'http://quotes.stormconsultancy.co.uk/random.json'
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:1234@localhost/blog'
 
