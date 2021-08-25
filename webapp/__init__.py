@@ -15,6 +15,7 @@ def create_app(config_name):
 
     # Initializing flask extensions
     db.init_app(app)
+    login_manager.init_app(app)
     
     #registering the blueprint
     from webapp.auth import auth as blue_print
