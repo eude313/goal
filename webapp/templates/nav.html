@@ -23,27 +23,21 @@
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarRightAlignExample">
         <!-- Left links -->
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
           <li class="nav-item Home">
-            <a style="font-family: 'Playball', cursive; text-shadow: 2px 2px 2px black; color: white; font-size:1.4rem;" class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
+            <a style="font-family: 'Playball', cursive; text-shadow: 2px 1px 1px black; font-size:1.4rem;" class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
           </li>
          
-          <li class="nav-item">
-            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Playball', cursive; font-size:1.4rem;" class="nav-link" href="{{ url_for('main.blogs') }}">Blogs</a>
+          <li class="nav-item text-muted">
+            <a style="text-shadow: 2px 1px 1px black; font-family: 'Playball', cursive; font-size:1.4rem;" class="nav-link" href="{{ url_for('main.blogs') }}">Blogs</a>
           </li>
           
-          <li class="nav-item">
-            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Playball', cursive; font-size:1.4rem;" class="nav-link" href="{{ url_for('main.quotes') }}">Quotes</a>
-          </li>
-
-          <li class="text-center" style="text-shadow: 2px 2px 2px black; margin-left:-1rem;">
+          <li class="text-center" style="text-shadow: 2px 1px 1px black; margin-left:-1rem;">
             {% if current_user.is_authenticated %}
               <li class="nav-item">
-                <a style="margin-left:1.4rem; text-shadow: 2px 2px 1px black; color: white; font-family: 'Playball', cursive; font-size:1rem;" class="nav-link" href="{{ url_for('auth.Account') }}">Profile</a>
+                <a style="margin-left:1.4rem; font-size:1.4rem; text-shadow: 2px 1px 1px black; font-family: 'Playball', cursive;" class="nav-link" href="{{ url_for('auth.Account') }}">Profile</a>
               </li>
-              <a href="{{ url_for('auth.signOut') }}"><button style=" font-size:1rem; margin-left:1rem; font-family: 'Playball', cursive;"  type="button"
-              class="btn btn-outline-success btn-rounded "
-              data-mdb-ripple-color="dark">log out</button></a>
+              <a href="{{ url_for('auth.signOut') }}"><button  type="button" class="btn btn-success btn-rounded" style="font-family: 'Playball', cursive; font-size:1rem;margin-left:1rem;">log out</button></a>
             {% else %}
               <a href="{{ url_for('auth.signUp') }}"><button  type="button" class="btn btn-success btn-rounded" style="font-family: 'Playball', cursive; font-size:1rem; position: relative;left: 1.5rem; top: 0px; z-index: 1;">Sign Up</button></a>
               <a href="{{ url_for('auth.signIn') }}"><button style=" font-size:1rem; font-family: 'Playball', cursive;"  type="button"

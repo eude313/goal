@@ -1,3 +1,5 @@
+import json
+from ..request import get_quotes
 from flask import render_template, url_for
 from . import main
 
@@ -8,8 +10,7 @@ def home():
 
 @main.route('/blogs')
 def blogs():
-    return render_template('blogs.html')
+    raw_quotes = get_quotes()
+    quotes = json.loads(raw_quotes)
+    return render_template('blogs.html', quotes=quotes)
 
-@main.route('/quotes')
-def quotes():
-    return render_template('quotes.html')

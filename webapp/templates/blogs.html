@@ -5,8 +5,26 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+      <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header"><h4>latest qoute</h4> </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ quotes.author }}</h5>
+          <p class="card-text">" {{ quotes.quote }}"
+          </p>
+          <p class="card-text">" {{ quotes.id }}"
+            </p>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
 
 {% endblock %}
+
 {% block footer %} 
     {% include "footer.html" %}
 {% endblock %}

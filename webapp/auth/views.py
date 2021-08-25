@@ -3,7 +3,9 @@ from webapp import db, bcrypt
 from flask_login import login_user, logout_user, current_user, login_required
 from ..models import User
 from flask import  render_template,url_for, flash, redirect
-from .forms import registrationForm, loginForm
+from .forms import registrationForm, loginForm, Update_AccountForm
+import json
+from ..request import get_quotes
 
 @auth.route('/signup', methods=['POST', 'GET'])
 def signUp():
@@ -41,5 +43,8 @@ def signOut():
 @auth.route("/account")
 @login_required
 def Account():
+    raw_quotes = get_quotes()
+    quotes = json.loads(raw_quotes)
+    form =  Update_AccountForm()
     image_file = url_for('static',filename='/images/')
-    return render_template('Profile.html',  title="Profile", image_file= image_file)
+    return render_template('Profile.html',  title="Profile", image_file= image_file, form= form, quotes=quotes)

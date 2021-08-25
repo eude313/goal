@@ -5,21 +5,53 @@
 {% endblock %}
 
 {% block content %}
-
-    <div class="container">
-        <div class="media">
-            <figure class="figure">
-                <img
-                  src='{{ image_file }}'
-                  class="figure-img img-fluid rounded shadow-3 mb-3"
-                  alt="..."
-                />
-                <figcaption class="figure-caption">Your ussername is : {{ current_user.username }}.</figcaption>
-                <figcaption class="figure-caption">Your email-adress is : {{ current_user.email }}</figcaption>
-            </figure>
+<div class="container" style="padding-left:4rem; padding-top:2rem;">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4 text-center" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img
+                    src="{{ image_file }}"
+                    alt="..."
+                    class="img-fluid"
+                    />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">Profile info</h5>
+                    <p class="card-text">
+                        Your ussername is : {{ current_user.username }}
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">Your email-adress is : {{ current_user.email }}</small>
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-6">
+                <div class="card bg-light mb-5" style="max-width: 18rem;">
+                  <div class="card-header"><h4>latest qoute</h4> </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ quotes.author }}</h5>
+                    <p class="card-text">" {{ quotes.quote }}"
+                    </p>
+                    <p class="card-text">" {{ quotes.id }}"
+                      </p>
+                  </div>
+                </div>
+            </div>
 
         </div>
     </div>
+
+</div>
+
+
+
 
 {% endblock %}
 {% block footer %} 
