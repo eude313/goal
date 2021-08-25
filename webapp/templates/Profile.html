@@ -19,12 +19,12 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                    <h5 class="card-title">Profile info</h5>
-                    <p class="card-text">
+                    <h5 class="card-title"style="font-family: 'Signika Negative', sans-serif;">Profile info</h5>
+                    <p class="card-text" style="font-family: 'Playball', cursive;">
                         Your ussername is : {{ current_user.username }}
                     </p>
                     <p class="card-text">
-                        <small class="text-muted">Your email-adress is : {{ current_user.email }}</small>
+                        <small class="text-muted" style="font-family: 'Playball', cursive;">Your email-adress is : {{ current_user.email }}</small>
                     </p>
                     </div>
                 </div>
@@ -34,14 +34,14 @@
         <div class="col-md-6">
             <div class="col-md-6">
                 <div class="card bg-light mb-5" style="max-width: 18rem;">
-                  <div class="card-header"><h4>latest qoute</h4> </div>
-                  <div class="card-body">
-                    <h5 class="card-title">{{ quotes.author }}</h5>
-                    <p class="card-text">" {{ quotes.quote }}"
-                    </p>
-                    <p class="card-text">" {{ quotes.id }}"
-                      </p>
-                  </div>
+                    <div class="card-header"><h4 style="font-family: 'Signika Negative', sans-serif;">latest qoute</h4> </div>
+                    <div class="card-body">
+                        <h5 class="card-title"  style="font-family: 'Playball', cursive;">{{ quotes.author }}</h5>
+                        <p class="card-text"  style="font-family: 'Playball', cursive;">" {{ quotes.quote }}"
+                        </p>
+                        <p class="card-text" style="font-family: 'Alex Brush', cursive;">" {{ quotes.id }}"
+                        </p>
+                    </div>
                 </div>
             </div>
 

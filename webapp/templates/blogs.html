@@ -5,17 +5,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container p-2">
   <div class="row">
     <div class="col-md-8"></div>
     <div class="col-md-4">
       <div class="card bg-light mb-3" style="max-width: 18rem;">
-        <div class="card-header"><h4>latest qoute</h4> </div>
+        <div class="card-header"><h4 style="font-family: 'Signika Negative', sans-serif;">latest qoute</h4> </div>
         <div class="card-body">
-          <h5 class="card-title">{{ quotes.author }}</h5>
-          <p class="card-text">" {{ quotes.quote }}"
+          <h5 class="card-title"  style="font-family: 'Playball', cursive;">{{ quotes.author }}</h5>
+          <p class="card-text"  style="font-family: 'Playball', cursive;">" {{ quotes.quote }}"
           </p>
-          <p class="card-text">" {{ quotes.id }}"
+          <p class="card-text" style="font-family: 'Alex Brush', cursive;">" {{ quotes.id }}"
             </p>
         </div>
       </div>
