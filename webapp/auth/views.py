@@ -40,11 +40,17 @@ def signOut():
     logout_user()
     return redirect(url_for('main.home')) 
 
-@auth.route("/account")
+@auth.route("/account", methods=['POST', 'GET'])
 @login_required
 def Account():
     raw_quotes = get_quotes()
     quotes = json.loads(raw_quotes)
     form =  Update_AccountForm()
+    if form.validate_on_submit():
+        current_user.username.data = form.username.data
+        current_user.email.data = form.email.data
+        db.session.commit()
+        flash(" Account has been updated", "success")
+        return redirect(url_for('Account'))
     image_file = url_for('static',filename='/images/')
     return render_template('Profile.html',  title="Profile", image_file= image_file, form= form, quotes=quotes)

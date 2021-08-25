@@ -10,27 +10,74 @@
         <div class="col-md-6">
             <div class="card mb-4 text-center" style="max-width: 540px;">
                 <div class="row g-0">
-                <div class="col-md-4">
-                    <img
-                    src="{{ image_file }}"
-                    alt="..."
-                    class="img-fluid"
-                    />
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                    <h5 class="card-title"style="font-family: 'Signika Negative', sans-serif;">Profile info</h5>
-                    <p class="card-text" style="font-family: 'Playball', cursive;">
-                        Your ussername is : {{ current_user.username }}
-                    </p>
-                    <p class="card-text">
-                        <small class="text-muted" style="font-family: 'Playball', cursive;">Your email-adress is : {{ current_user.email }}</small>
-                    </p>
+                    <div class="col-md-4">
+                        <img
+                        src="{{ image_file }}"
+                        alt="..."
+                        class="img-fluid"
+                        />
                     </div>
-                </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title"style="font-family: 'Signika Negative', sans-serif;">Profile info</h5>
+                        <p class="card-text" style="font-family: 'Playball', cursive;">
+                            Your ussername is : {{ current_user.username }}
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted" style="font-family: 'Playball', cursive;">Your email-adress is : {{ current_user.email }}</small>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <form method="POST" action="">
+                                {{ form.hidden_tag() }}
+                            <fieldset class="form-group text-center">
+                                <legend class="form" style="font-family: 'Signika Negative', sans-serif; margin-left:-6rem;">Account info </legend>
+        
+                                <!-- Username input -->
+                                <div class="form-outline mb-4">
+                                    
+                                    {% if form.username.errors %}
+                                    {{ form.username( class="form-control-lg is_invalid" ) }}
+                                        <div class="invalid_feedback">
+                                            {% for error in form.username.errors %}
+                                                <span class="">{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.username( class="form-control-lg",style="font-family: 'Playball', cursive;" ) }}
+                                    {% endif %}
+                                {{ form.username.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
+                                </div> 
+        
+                                <!-- Email input -->
+                                <div class="form-outline ml-4 mb-4" style="margin-left:-1.5rem;">
+                                   
+                                    {% if form.email.errors %}
+                                        {{ form.email( class="form-control-lg is_invalid" ) }}
+                                        <div class="invalid_feedback">
+                                            {% for error in form.email.errors %}
+                                                <span> {{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.email( class="form-control-lg" ) }}
+                                    {% endif %}
+                                 {{ form.email.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
+                                </div>
+                                <!-- Submit button -->
+                                
+                            </fieldset>
+                            <div class="text-center">
+                                {{ form.submit( class="btn btn-primary btn-block mb-4", style="width: 33%; margin-left: 3.5rem;") }}
+                            </div>
+                        </form>
+                    </div>
+        
                 </div>
             </div>
         </div>
+
         <div class="col-md-6">
             <div class="col-md-6">
                 <div class="card bg-light mb-5" style="max-width: 18rem;">
