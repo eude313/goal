@@ -1,6 +1,7 @@
 # goal
 -  This project was generated with [python](https://www.python.org/) 
 #### By **Eudes Charles**
+
 ## Description
 - This is a webapp created by eudes that allows you to check for the lattest blogs as it happens.
 
