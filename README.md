@@ -12,6 +12,8 @@ To get more help on python please visit https://www.python.org/.
 | Our Program should handle                       | Input example | Output example                                   |
 |:------------------------------------------------|---------------|--------------------------------------------------|
 |able to authenticate the forms | forms  | app is able to create users .|
+|able to delete | forms  | app is able to delete users .|
+|able to create posts | forms  | app is able to create user posts .|
 
 ## Known Bugs
 Want to contribute? Great!
