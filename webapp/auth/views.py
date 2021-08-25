@@ -41,4 +41,5 @@ def signOut():
 @auth.route("/account")
 @login_required
 def Account():
-    return render_template('Profile.html', title="Profile")
+    image_file = url_for('static',filename='/images/')
+    return render_template('Profile.html',  title="Profile", image_file= image_file)
