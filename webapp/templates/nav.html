@@ -22,45 +22,31 @@
         <!-- Left links -->
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item Home">
-            <a style=" font-family: 'Signika Negative', sans-serif;" class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
+            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
           </li>
+         
           <li class="nav-item">
-            <a style="font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('main.blogs') }}">Blogs</a>
+            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('main.blogs') }}">Blogs</a>
           </li>
+          
           <li class="nav-item">
-            <a style="font-family: 'Signika Negative', sans-serif;" class="nav-link" href="#">Profile</a>
+            <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('main.quotes') }}">Quotes</a>
           </li>
-          <li class="nav-item">
-                <a style="font-family: 'Signika Negative', sans-serif;" class="nav-link" href="#">Quotes</a>
-           </li>
-          <!-- Navbar dropdown -->
-          <!-- <li class="nav-item dropdown">
-            <a style=" font-family: 'Signika Negative', sans-serif;"
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Quotes
-            </a> -->
-            
-            <!-- Dropdown menu -->
-            <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" style="text-shadow: 2px 2px 2px black; color:#64DD17; font-family: 'Playball', cursive;" href="#">popular</a>
-              </li>
-              <li>
-                <a class="dropdown-item" style="text-shadow: 2px 2px 2px black; color:#64DD17; font-family: 'Playball', cursive;"  href="#">Latest</a>
-              </li>
-            </ul> -->
-          <!-- </li> -->
+
           <li class="text-center" style="text-shadow: 2px 2px 2px black; margin-left:-1rem;">
-            <a href="{{ url_for('auth.signUp') }}"><button  type="button" class="btn btn-success btn-rounded" style="font-family: 'Signika Negative', sans-serif; position: relative;left: 1.3rem; top: 0px; z-index: 1;">Sign Up</button></a>
-            <a href="{{ url_for('auth.signIn') }}"><button style="font-family: 'Signika Negative', sans-serif;"  type="button"
-            class="btn btn-outline-success btn-rounded"
-            data-mdb-ripple-color="dark">Sign In</button></a>
+            {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a style="margin-left:1rem; text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.Account') }}">Profile</a>
+              </li>
+              <a href="{{ url_for('auth.signOut') }}"><button style="margin-left:1rem; font-family: 'Signika Negative', sans-serif;"  type="button"
+              class="btn btn-outline-success btn-rounded "
+              data-mdb-ripple-color="dark">log out</button></a>
+            {% else %}
+              <a href="{{ url_for('auth.signUp') }}"><button  type="button" class="btn btn-success btn-rounded" style="font-family: 'Signika Negative', sans-serif; position: relative;left: 1.5rem; top: 0px; z-index: 1;">Sign Up</button></a>
+              <a href="{{ url_for('auth.signIn') }}"><button style="font-family: 'Signika Negative', sans-serif;"  type="button"
+              class="btn btn-outline-success btn-rounded"
+              data-mdb-ripple-color="dark">Sign In</button></a>
+            {% endif %}
           </li>
         </ul>
         <!-- Left links -->

@@ -6,6 +6,7 @@ from flask_bcrypt import Bcrypt
 #creating app configuration
 
 login_manager= LoginManager()
+login_manager.login_view= 'signIn'
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 

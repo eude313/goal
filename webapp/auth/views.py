@@ -1,13 +1,13 @@
 from . import auth
 from webapp import db, bcrypt
-from flask_login import login_user, logout_user, current_user 
+from flask_login import login_user, logout_user, current_user, login_required
 from ..models import User
 from flask import  render_template,url_for, flash, redirect
 from .forms import registrationForm, loginForm
 
 @auth.route('/signup', methods=['POST', 'GET'])
 def signUp():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('main.home'))
     form = registrationForm()
     if form.validate_on_submit():
@@ -21,7 +21,7 @@ def signUp():
 
 @auth.route("/login", methods=['POST', 'GET'])
 def signIn():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('main.home'))
     form = loginForm()
     if form.validate_on_submit():
@@ -39,5 +39,6 @@ def signOut():
     return redirect(url_for('main.home')) 
 
 @auth.route("/account")
+@login_required
 def Account():
     return render_template('Profile.html', title="Profile")

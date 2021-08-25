@@ -42,7 +42,7 @@
           <li class="text-center" style="text-shadow: 2px 2px 2px black; margin-left:-1rem;">
             {% if current_user.is_authenticated %}
               <li class="nav-item">
-                <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.Profile') }}">Profile</a>
+                <a style="margin-left:1rem; text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.Account') }}">Profile</a>
               </li>
               <a href="{{ url_for('auth.signOut') }}"><button style="margin-left:1rem; font-family: 'Signika Negative', sans-serif;"  type="button"
               class="btn btn-outline-success btn-rounded "
