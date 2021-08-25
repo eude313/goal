@@ -6,6 +6,7 @@ from flask import  render_template,url_for, flash, redirect
 from .forms import registrationForm, loginForm, Update_AccountForm
 import json
 from ..request import get_quotes
+from webapp import request
 
 @auth.route('/signup', methods=['POST', 'GET'])
 def signUp():
