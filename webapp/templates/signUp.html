@@ -10,10 +10,10 @@
     <form method="POST" action="/signup">
             {{ form.hidden_tag() }}
         <fieldset class="form-group text-center">
-            <legend class="form">Join us today!</legend> 
+            <legend class="form" style="font-family: 'Signika Negative', sans-serif;">Join us today!</legend> 
             <!-- Username input -->
             <div class="form-outline mb-4">
-                {{ form.username.label( class="form-control-label" ) }}
+                {{ form.username.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
                 {% if form.username.errors %}
                  {{ form.username( class="form-control-lg is_invalid" ) }}
                     <div class="invalid_feedback">
@@ -22,14 +22,14 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.username( class="form-control-lg" ) }}
+                    {{ form.username( class="form-control-lg",style="font-family: 'Playball', cursive;" ) }}
                 {% endif %}
               
             </div> 
 
             <!-- Email input -->
-            <div class="form-outline ml-4 mb-4">
-                {{ form.email.label( class="form-control-label" ) }}
+            <div class="form-outline ml-4 mb-4" style="margin-left:-14px;">
+                {{ form.email.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
                 {% if form.email.errors %}
                     {{ form.email( class="form-control-lg is_invalid" ) }}
                     <div class="invalid_feedback">
@@ -38,14 +38,14 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.email( class="form-control-lg" ) }}
+                    {{ form.email( class="form-control-lg",style="font-family: 'Playball', cursive;" ) }}
                 {% endif %}
               
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-                {{ form.password.label( class=" form-control-label" ) }}
+                {{ form.password.label( class=" form-control-label",style="font-family: 'Playball', cursive;" ) }}
                 {% if form.password.errors %}
                     {{ form.password( class="form-control-lg is_invalid" ) }}
                     <div class="invalid_feedback">
@@ -54,13 +54,13 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.password( class="form-control-lg" ) }}
+                    {{ form.password( class="form-control-lg",style="font-family: 'Playball', cursive;" ) }}
                 {% endif %}
             </div>
 
             <!--confirm_password input -->
-            <div class="form-outline mb-4">
-                {{ form.confirm_password.label( class="form-control-label" ) }}
+            <div class="form-outline mb-4" style="margin-left:-3.8rem;">
+                {{ form.confirm_password.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
                 {% if form.confirm_password.errors %}
                     {{ form.confirm_password( class="form-control-lg is_invalid" ) }}
                     <div class="invalid_feedback">
@@ -69,51 +69,17 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.confirm_password( class="form-control-lg" ) }}
+                    {{ form.confirm_password( class="form-control-lg",style=" font-family: 'Playball', cursive;" ) }}
                 {% endif %}
                
             </div>
 
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-center mb-4">
-                <input
-                class="form-check-input me-2"
-                type="checkbox"
-                value=""
-                id="form2Example3"
-                checked
-                />
-                <label class="form-check-label" for="form2Example3">
-                Subscribe to our newsletter
-                </label>
-            </div>
-
-            <!-- Submit button -->
-            
         </fieldset>
-        <button type="submit" class="btn btn-primary btn-block mb-4">{{ form.submit() }}</button>
-        <!-- Register buttons -->
-        <div class="text-center">
-            <p>or sign up with:</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-            <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-            <i class="fab fa-google"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-            <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-            <i class="fab fa-github"></i>
-            </button>
-        </div>
+       {{ form.submit(  class="btn btn-primary btn-block mb-4", style="margin-left:27rem; width:20%;") }}
+       
     </form>
     <div class="text-center">
-        <p class="text-muted"> If you have an account<a class="ml-2"href="{{ url_for('auth.signIn') }}">SignIn</a></p>
+        <p class="text-muted" style=" font-family: 'Playball', cursive;"> If you have an account  <a class="ml-2"href="{{ url_for('auth.signIn') }}">SignIn</a></p>
     </div>
 </div>
 {% endblock %}

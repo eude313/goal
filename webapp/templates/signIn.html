@@ -10,11 +10,11 @@
     <form method="POST" action="">
             {{ form.hidden_tag() }}
         <fieldset class="form-group text-center">
-            <legend class="form">log in !</legend> 
+            <legend class="form" style="font-family: 'Signika Negative', sans-serif;">log in !</legend> 
 
             <!-- Email input -->
             <div class="form-outline ml-4 mb-4">
-                {{ form.email.label( class="form-control-label" ) }}
+                {{ form.email.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
                 {% if form.email.errors %}
                     {{ form.email( class="form-control-lg is_invalid" ) }}
                     <div class="invalid_feedback">
@@ -29,8 +29,8 @@
             </div>
 
             <!-- Password input -->
-            <div class="form-outline mb-4">
-                {{ form.password.label( class="form-control-label" ) }}
+            <div class="form-outline mb-4" style="margin-left: 10px;">
+                {{ form.password.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
                 {% if form.password.errors %}
                     {{ form.password( class="form-control-lg is_invalid" ) }}
                     <div class="invalid_feedback">
@@ -45,26 +45,17 @@
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-center mb-4">
                 {{ form.remember( class="form-check-input" ) }}
-                {{ form.remember.label( class="form-check-label" ) }}
-                <!-- <input
-                class="form-check-input me-2"
-                type="checkbox"
-                value=""
-                id="form2Example3"
-                checked
-                />
-                <label class="form-check-label" for="form2Example3">
-                remember me !
-                </label>  -->
+                {{ form.remember.label( class="form-check-label",style="font-family: 'Playball', cursive;") }}
+
             </div>
 
             <!-- Submit button -->
             
         </fieldset>
         <div class="container pl-7" style="width:20%;">
-            <button type="button" class="btn btn-primary btn-block mb-4">{{ form.submit() }}</button>
+            {{ form.submit( class="btn btn-primary btn-block mb-4", style="margin-left: 10px;") }}
             <small class="text-muted ml-2">
-            <a href="#">Forgot Password?</a>
+            <a href="#"  style=" font-family: 'Playball', cursive;">Forgot Password?</a>
             </small>
         </div>
         
