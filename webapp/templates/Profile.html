@@ -66,16 +66,18 @@
                                  {{ form.email.label( class="form-control-label",style="font-family: 'Playball', cursive;" ) }}
                                 </div>
                                 <!-- picture -->
-                                <div>
-                                    {{ form.picture.label() }}
+                                <div style="margin-left:2rem;">
+                                    
                                     {{ form.picture( class="form-control-lg" ) }}
                                     {% if form.picture.errors %}
                                         {% for error in form.picture.errors %}
                                             <span class="text-danger"> {{ error }}</span> <br>
                                         {% endfor %}
                                     {% endif %}
+                                    {{ form.picture.label( style="font-family: 'Playball', cursive;" ) }}
                                 </div>
                             </fieldset>
+                            <br>
                             <!-- Submit button -->
                             <div class="text-center">
                                 {{ form.submit( class="btn btn-primary btn-block mb-4", style="width: 33%; margin-left: 3.5rem;") }}
@@ -105,8 +107,10 @@
     </div>
 
 </div>
-
-
+<br>
+<br>
+<br>
+<br>
 
 
 {% endblock %}

@@ -1,3 +1,4 @@
+import webapp
 from . import auth
 from webapp import db, bcrypt
 from flask_login import login_user, logout_user, current_user, login_required
@@ -5,8 +6,10 @@ from ..models import User
 from flask import  render_template,url_for, flash, redirect
 from .forms import registrationForm, loginForm, Update_AccountForm
 import json
+import os
+import secrets
 from ..request import get_quotes
-from webapp import request
+
 
 @auth.route('/signup', methods=['POST', 'GET'])
 def signUp():
@@ -41,6 +44,15 @@ def signOut():
     logout_user()
     return redirect(url_for('main.home')) 
 
+def save_picture( form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.file_name)
+    picture_fn = random_hex +  f_ext 
+    picture_path = os.path.join(webapp.root_path, 'static/images', picture_fn)
+    form_picture.save(picture_path)
+
+    return picture_fn
+
 @auth.route("/account", methods=['POST', 'GET'])
 @login_required
 def Account():
@@ -48,6 +60,9 @@ def Account():
     quotes = json.loads(raw_quotes)
     form =  Update_AccountForm()
     if form.validate_on_submit():
+        if form.picture.data:
+           image_file = save_picture(form.picture.data)
+           current_user.image_file.data = image_file
         current_user.username.data = form.username.data
         current_user.email.data = form.email.data
         db.session.commit()
