@@ -73,15 +73,21 @@ def Account():
 
 
 
-@auth.route('/blogs/new', methods=['POST', 'GET'])
-@login_required
+@auth.route('/blogs')
 def blogs():
     raw_quotes = get_quotes()
     quotes = json.loads(raw_quotes)
+    post= Post.query.all()
+    return render_template('blogs.html',post=post , quotes=quotes)
+
+@auth.route('/post/new', methods=['POST', 'GET'])
+@login_required
+def post():
     form =blog_form()
     if form.validate_on_submit():
-        flash( " post has been created", "success" )
-        post = Post( form.title.data, content= form.content.data, author=current_user )
+        post = Post(title=form.title.data, content=form.content.data, author=current_user)
         db.session.add(post)
         db.session.commit()
-    return render_template('blogs.html',form=form, quotes=quotes)
+        flash( " post has been created", "success" )
+        return redirect(url_for('auth.blogs'))
+    return render_template('post.html',form=form)

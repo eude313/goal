@@ -32,13 +32,15 @@
           <li class="nav-item Home">
             <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link active" aria-current="page" href="{{ url_for('main.home') }}">Home</a>
           </li>
-         
+          <li class="nav-item">
+                <a style="margin-left:1rem; text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.blogs') }}">Blogs</a>
+              </li>
           <li class="text-center" style="text-shadow: 2px 2px 2px black; margin-left:-1rem;">
             {% if current_user.is_authenticated %}
 
               <li class="nav-item">
-                <a style="margin-left:1rem; text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.blogs') }}">Blogs</a>
-              </li>
+                <a style="margin-left:1rem;text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.post') }}">Add blog</a>
+              </li> 
               <li class="nav-item">
                 <a style="text-shadow: 2px 2px 2px black; color: white; font-family: 'Signika Negative', sans-serif;" class="nav-link" href="{{ url_for('auth.Account') }}">Profile</a>
               </li>
@@ -66,20 +68,23 @@
 {% block content %}
 
 <body>
-    <div class="container">
-      
-      <div class="text-white"></div>
-      <div class="text-white text-center"><h5>“Have you ever wished you could peer inside the mind of one of the <br>greatest writers  in the world and find out exactly what <br>makes them tick?”  good news you can become<br>  a great writerby joining our platform </h5></div>
+  <div class="container">
+    <div class= "container">
+        <!-- <img src="{{ url_for('static',filename='/images/logo.png') }}" width="15%" alt=""> -->
+        <h1 class="text-center" style="font-size: 9vh; font-family: 'Playball', cursive;  text-shadow:2px 2px 2px black; color:white; padding-top: 3rem;">Welcome to Carbon's blog <i style="font-size:1.5rem; color: gold;" class="fas fa-smile-wink"></i></h1>
+    </div>
+    <div style="text-shadow:2px 2px 2px black; position:relative;  top:8vh; left:0;">
+      <div class="text-white text-center" style=" font-family: 'Playball', cursive; "><h5 style="font-size: 5vh; ">“Have you ever wished you could peer inside the mind of one of the <br>greatest writers  in the world and find out exactly what <br>makes them tick?”  good news you can become<br>  a great writerby joining our platform </h5></div>
       <div class="text-center">
-        <button style="font-family: 'Signika Negative', sans-serif;"  type="button"
+        <button style="font-family: 'Signika Negative', sans-serif;"  type="button" 
                 class="btn btn-outline-success btn-rounded"
                 data-mdb-ripple-color="dark">
           Learn More
         </button>
       </div>
-      <div class="text-center"><small class="text-white"> By Carbon</small></div>
-      
+      <div class="text-center"><small class="text-white" style="font-size: 3vh; font-family: 'Playball', cursive; "> By Carbon</small></div>
     </div>
+  </div>
 </body>
 
 {% endblock %}
