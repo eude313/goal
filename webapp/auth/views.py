@@ -78,9 +78,7 @@ def blogs():
     raw_quotes = get_quotes()
     quotes = json.loads(raw_quotes)
     posts= Post.query.all()
-    # for post in post:
-        # print(post.title)
-    return render_template('blogs.html',posts=posts, quotes=quotes)
+    return render_template('blogs.html', posts=posts, quotes=quotes)
 
 @auth.route('/post/new', methods=['POST', 'GET'])
 @login_required
