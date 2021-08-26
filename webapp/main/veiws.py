@@ -8,9 +8,4 @@ from . import main
 def home():
     return render_template('index.html')
 
-@main.route('/blogs')
-def blogs():
-    raw_quotes = get_quotes()
-    quotes = json.loads(raw_quotes)
-    return render_template('blogs.html', quotes=quotes)
 

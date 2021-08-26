@@ -4,7 +4,7 @@ from webapp import db, bcrypt
 from flask_login import login_user, logout_user, current_user, login_required
 from ..models import User
 from flask import  render_template,url_for, flash, redirect
-from .forms import registrationForm, loginForm, Update_AccountForm
+from .forms import registrationForm, loginForm, Update_AccountForm, blog_form
 import json
 import os
 import secrets
@@ -46,7 +46,7 @@ def signOut():
 
 def save_picture( form_picture):
     random_hex = secrets.token_hex(8)
-    _, f_ext = os.path.splitext(form_picture.file_name)
+    f_ext = os.path.splitext(form_picture.file_name)
     picture_fn = random_hex +  f_ext 
     picture_path = os.path.join(webapp.root_path, 'static/images', picture_fn)
     form_picture.save(picture_path)
@@ -70,3 +70,16 @@ def Account():
         return redirect(url_for('Account'))
     image_file = url_for('static',filename='/images/')
     return render_template('Profile.html',  title="Profile", image_file= image_file, form= form, quotes=quotes)
+
+
+
+@auth.route('/blogs/new', methods=['POST', 'GET'])
+@login_required
+def blogs():
+    raw_quotes = get_quotes()
+    quotes = json.loads(raw_quotes)
+    form =blog_form()
+    if form.validate_on_submit():
+        flash( " post has been created", "success" )
+        return redirect('blogs')
+    return render_template('blogs.html',form=form, quotes=quotes)
