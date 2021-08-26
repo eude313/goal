@@ -2,7 +2,7 @@ import webapp
 from . import auth
 from webapp import db, bcrypt
 from flask_login import login_user, logout_user, current_user, login_required
-from ..models import User
+from ..models import Post, User 
 from flask import  render_template,url_for, flash, redirect
 from .forms import registrationForm, loginForm, Update_AccountForm, blog_form
 import json
@@ -81,5 +81,7 @@ def blogs():
     form =blog_form()
     if form.validate_on_submit():
         flash( " post has been created", "success" )
-        return redirect('blogs')
+        post = Post( form.title.data, content= form.content.data, author=current_user )
+        db.session.add(post)
+        db.session.commit()
     return render_template('blogs.html',form=form, quotes=quotes)
